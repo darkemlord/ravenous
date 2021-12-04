@@ -2,6 +2,7 @@ import React from 'react';
 import '../App/App.css'
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
+import Yelp from '../../util/Yelp';
 
 const business = {
   imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
@@ -22,6 +23,7 @@ const business = {
   }
 
 function App() {
+  Yelp.search("italian", "milan", "best_match")
   return (
     <div className="App">
       <h1>Ravenous</h1>
