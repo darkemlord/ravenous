@@ -9,11 +9,17 @@ const sortByOptions = {
 
 export const SearchBar = () => {
   const renderSortedByOptions = () =>{
-
+    return Object.keys(sortByOptions).map((element, index) => {
+      let sortByOptionValue = sortByOptions[element];
+      return <li key={index}>{sortByOptionValue}</li>
+    })
   };
+
   return (
     <div>
 
     </div>
   )
 }
+
+export default SearchBar;
