@@ -3,16 +3,12 @@ import Business from '../Business/Business';
 import '../BusinessList/BusinessList.css';
 
 
-const BusinessList = () => {
+const BusinessList = (props) => {
   return (
     <div className="BusinessList">
-
-      <Business></Business>
-      <Business></Business>
-      <Business></Business>
-      <Business></Business>
-      <Business></Business>
-      <Business></Business>
+      {props.businesses.map( (business, index) => (
+        <Business key={index} business={props.business}/>
+      ))}
     </div>
   )
 }
