@@ -16,8 +16,19 @@ export const SearchBar = () => {
   };
 
   return (
-    <div>
-
+    <div className="SearchBar">
+      <div className="SearchBar-sort-options">
+        <ul>
+          {renderSortedByOptions()}
+        </ul>
+      </div>
+      <div className="SearchBar-fields">
+        <input placeholder="Search Businesses" />
+        <input placeholder="Where?" />
+      </div>
+      <div className="SearchBar-submit">
+        <a href="/" >Let's Go</a>
+      </div>
     </div>
   )
 }
