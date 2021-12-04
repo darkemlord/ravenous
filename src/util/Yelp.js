@@ -1,4 +1,4 @@
-const apiKey = "WHGKbARW6AxIK-AZX9PtwvQRZS7Fu-4k6vU46hI5xlu-80CG7Rvkpb-4qoUz3b6hhvxSEmlja56O8roCVMjn4FpYlwEe5LyWvWqqLR4Juh92hmxHBlNeVW4uBOpLYXYx";
+const apiKey = "mOgVgAI9ZRmj53UCTiSzHMVCYbldbjmFr9lZ-9g2bpxTnd4vBzZUvUCYjxt0IHeztSYv9ZKAHURyNhYJJAXdY_laxJtabshRWcCj-7u_DxpWxRFaO_tzUpQQaIWrYXYx";
 
 const Yelp = {
   search(term, location, sortBy){
@@ -10,9 +10,34 @@ const Yelp = {
     }
     ).then(response => response.json())
     .then(responsejson => {
-      console.log(responsejson)
+      if(responsejson.businesses){
+        return responsejson.businesses.map((business) => {
+          console.log(business)
+          return {
+            id: business.id,
+            imageSrc: business.image_url,
+            name: business.name,
+            address: business.location.address1,
+            city: business.location.city,
+            state: business.location.state,
+            zipCode: business.location.zip_code,
+            category: business.categories[0].title,
+            rating: business.rating,
+            reviewCount: business.review_count
+          }
+        })
+      }
     })
   }
 };
+  // imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
+  // name: 'MarginOtto Pizzeria',
+  // address: '1010 Paddington Way',
+  // city: 'Flavortown',
+  // state: 'NY',
+  // zipCode: '10101',
+  // category: 'Italian',
+  // rating: 4.5,
+  // reviewCount: 90
 
 export default Yelp;
