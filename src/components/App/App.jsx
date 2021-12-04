@@ -14,13 +14,18 @@ const business = {
   rating: 4.5,
   reviewCount: 90
 }
-let businessWord = "business "
-const businesses = businessWord.repeat(6).trimEnd().split(" ");
+  let businessWord = "business "
+  const businesses = businessWord.repeat(6).trimEnd().split(" ");
+
+  const searchYelp = (term, location, sortBy) => {
+    console.log(`searching Yelp with ${term} ${location} ${sortBy}`)
+  }
+
 function App() {
   return (
     <div className="App">
       <h1>Ravenous</h1>
-      <SearchBar></SearchBar>
+      <SearchBar searchYelp={searchYelp}></SearchBar>
       <BusinessList businesses={businesses} business={business}/>
     </div>
   );
