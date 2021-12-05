@@ -6,9 +6,11 @@ import '../BusinessList/BusinessList.css';
 const BusinessList = (props) => {
   return (
     <div className="BusinessList">
-      {props.businesses.map( (business, index) => (
-        <Business key={index} business={props.business}/>
-      ))}
+      {
+        props.businesses.map(business => {
+          return <Business business={business} key={business.id}  />
+        })
+      }
     </div>
   )
 }
